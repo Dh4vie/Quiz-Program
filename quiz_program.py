@@ -2,7 +2,7 @@
 import random
 
 #load the file from the quiz creator
-filename = gathered_quiz_data.txt
+filename = "gathered_quiz_data.txt" 
 
 with open(filename, 'r') as file:
     content = file.read()
@@ -11,6 +11,27 @@ with open(filename, 'r') as file:
 question_blocks = content.strip().split('-' * 40)
 
 #Extract the questions, options, and answers
+questions = []
+
+for block in question_blocks:
+    lines = block.strip().split('\n')
+    if not lines or 'Question:' not in lines [0]:
+        continue
+
+    question_dictionary = {'question': '', 'options': {}, 'answer': ''}
+    for line in lines:
+        if line.startswith('Question:'):
+            question_dictionary['question'] = line[len('Question:'):].strip()
+        elif line.startswith("A)"):
+            question_dictionary['options']['A'] = line[3:].strip()
+        elif line.startswith("B)"):
+            question_dictionary['options']['B'] = line[3:].strip()
+        elif line.startswith("C)"):
+            question_dictionary['options']['C'] = line[3:].strip()
+        elif line.startswith("D)"):
+            question_dictionary['options']['D'] = line[3:].strip()
+        elif line.startswith("Correct Answer:"):
+
 #randomize the questions
 #display and prompt users to answer
 #check answer
