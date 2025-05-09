@@ -53,6 +53,10 @@ def start_quiz(questions):
     for key in ['A', 'B', 'C', 'D']:
         print(f"{key}) {question['options'].get(key, '')}")
     
-    input_answer = input('Enter answer (A/B/C/D): ').strip.().upper()
+    input_answer = input('Enter answer (A/B/C/D): ').strip().upper()
     
 #check answer
+    if input_answer == question['answer']:
+        print('\nCorrect!')
+    else:
+        print("The correct answer was {question['answer']}")
