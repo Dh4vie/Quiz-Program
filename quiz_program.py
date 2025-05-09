@@ -59,7 +59,7 @@ def start_quiz(questions):
     if input_answer == question['answer']:
         print('\nCorrect!')
     else:
-        print("The correct answer was {question['answer']}")
+        print(f"The correct answer was {question['answer']}")
 
 questions = get_quiz_data(filename)
 start_quiz(questions)
