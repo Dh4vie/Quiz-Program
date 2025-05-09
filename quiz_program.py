@@ -60,3 +60,6 @@ def start_quiz(questions):
         print('\nCorrect!')
     else:
         print("The correct answer was {question['answer']}")
+
+questions = get_quiz_data(filename)
+start_quiz(questions)
