@@ -31,6 +31,12 @@ for block in question_blocks:
         elif line.startswith("D)"):
             question_dictionary['options']['D'] = line[3:].strip()
         elif line.startswith("Correct Answer:"):
+            parts = line[len("Correct Answer:"):].strip().split(':', 1)
+            if len(parts) == 2:
+                question_dictionary['answer'] = parts[0].strip()
+
+    if question_dictionary['question'] and question_dictionary['options'] and question_dictionary['answer']:
+        questions.append(question_dictionary)
 
 #randomize the questions
 #display and prompt users to answer
